@@ -51,7 +51,7 @@
                 // All children are checked
                 if ($all.length == $checked.length) {
                     jQuery(this)
-                        .attr("checked", "checked")
+                        .prop("checked", true)
                         .siblings(".checkbox")
                         .removeClass("half_checked")
                         .addClass("checked")
@@ -63,7 +63,7 @@
                 // All children are unchecked
                 else if ($checked.length == 0) {
                     jQuery(this)
-                        .attr("checked", "")
+                        .prop("checked", false)
                         .siblings(".checkbox")
                         .removeClass("checked")
                         .removeClass("half_checked")
@@ -79,14 +79,14 @@
                         settings.onHalfCheck(jQuery(this).parent());
 
                     jQuery(this)
-                        .attr("checked", "")
+                        .prop("checked", false)
                         .siblings(".checkbox")
                         .removeClass("checked")
                         .addClass("half_checked")
                         ;
                 }
             })
-            .attr("checked", "")
+            .prop("checked", false)
             .hide()
             .end()
 
@@ -176,7 +176,7 @@
                                 if (settings.onCheck) settings.onCheck(jQuery(this).parent());
                             })
                             .siblings(":checkbox")
-                            .attr("checked", "checked")
+                            .prop("checked", true)
                             ;
                     }
                     else {
@@ -190,7 +190,7 @@
                                 if (settings.onUnCheck) settings.onUnCheck(jQuery(this).parent());
                             })
                             .siblings(":checkbox")
-                            .attr("checked", "")
+                            .prop("checked", false)
                             ;
                     }
                     // Tell our parent checkbox that we've changed
